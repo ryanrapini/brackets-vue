@@ -1,0 +1,1595 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ORde",
+				"OrderInvoice"
+			],
+			[
+				"Uploa",
+				"UploadFileType"
+			],
+			[
+				"Notifica",
+				"NotificationType"
+			],
+			[
+				"noti",
+				"notification"
+			],
+			[
+				"Trac",
+				"TrackingStatus"
+			],
+			[
+				"Trak",
+				"TrackingStatus"
+			],
+			[
+				"ordered",
+				"ordereditem"
+			],
+			[
+				"Spli",
+				"SplitOrderedItemPartRequest"
+			],
+			[
+				"offer",
+				"OffersController"
+			],
+			[
+				"slec",
+				"selected_tags"
+			],
+			[
+				"selec",
+				"selected_tags"
+			],
+			[
+				"sele",
+				"selectedTagMask"
+			],
+			[
+				"sel",
+				"selectedTagMask"
+			],
+			[
+				"desc",
+				"description"
+			],
+			[
+				"InventoryC",
+				"InventoryItemCoa"
+			],
+			[
+				"coa",
+				"coa_files"
+			],
+			[
+				"dropdo",
+				"dropdown-button"
+			],
+			[
+				"current",
+				"current_workgroup"
+			],
+			[
+				"validate",
+				"validatedData"
+			],
+			[
+				"input",
+				"input-field"
+			],
+			[
+				"inve",
+				"inventory_item"
+			],
+			[
+				"coll",
+				"collection-header"
+			],
+			[
+				"bt",
+				"btn-small"
+			],
+			[
+				"iven",
+				"inventory_items"
+			],
+			[
+				"facil",
+				"facility_location"
+			],
+			[
+				"faci",
+				"facility_location"
+			],
+			[
+				"fac",
+				"facility_locations"
+			],
+			[
+				"Faci",
+				"FacilityLocationCollection"
+			],
+			[
+				"settin",
+				"setting_type"
+			],
+			[
+				"is",
+				"is_cers_enabled"
+			],
+			[
+				"sett",
+				"setting_type"
+			],
+			[
+				"cers",
+				"cers_setting"
+			],
+			[
+				"valida",
+				"validatedData"
+			],
+			[
+				"val",
+				"validatedData"
+			],
+			[
+				"inventor",
+				"inventory_item"
+			],
+			[
+				"genera",
+				"general_settings"
+			],
+			[
+				"invento",
+				"inventory_item"
+			],
+			[
+				"inline-",
+				"inline-block"
+			],
+			[
+				"sds",
+				"sdsKeys"
+			],
+			[
+				"billing-address-",
+				"billing-address-spinner"
+			],
+			[
+				"billing-addres",
+				"billing-address-form"
+			],
+			[
+				"street",
+				"street_extra"
+			],
+			[
+				"renderCar",
+				"renderCardPayment"
+			],
+			[
+				"switch",
+				"switchPaymentMethod"
+			],
+			[
+				"center",
+				"center-align"
+			],
+			[
+				"billing-addre",
+				"billing-addresses"
+			],
+			[
+				"shi",
+				"shippingAddresses"
+			],
+			[
+				"loadad",
+				"loadaddress"
+			],
+			[
+				"billi",
+				"billingAddresses"
+			],
+			[
+				"offset",
+				"offset-m2"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "/**\n * First we will load all of this project's JavaScript dependencies which\n * includes Vue and other libraries. It is a great starting point when\n * building robust, powerful web applications using Vue and Laravel.\n */\n\nrequire('./bootstrap');\n\nwindow.Vue = require('vue');\n\nVue.config.devtools = true\n\nimport Vuex from 'vuex';\nVue.use(Vuex);\n\nconst store = new Vuex.Store({\n  state: {\n    data: {}\n  },\n  mutations: {\n    apply (state, n) {\n    \tstate.data = n;\n    }\n  }\n});\n\n/**\n * The following block of code may be used to automatically register your\n * Vue components. It will recursively scan this directory for the Vue\n * components and automatically register them with their \"basename\".\n *\n * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>\n */\n\nconst files = require.context('./', true, /\\.vue$/i)\nfiles.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))\n\n\n\n\n/**\n * Next, we will create a fresh Vue application instance and attach it to\n * the page. Then, you may begin adding components to this application\n * or customize the JavaScript scaffolding to fit your unique needs.\n */\n\nconst app = new Vue({\n    el: '#app',\n    store\n});\n",
+			"file": "resources/js/app.js",
+			"file_size": 1218,
+			"file_write_time": 132299806592948354,
+			"settings":
+			{
+				"buffer_size": 1218,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<!DOCTYPE html>\n<html lang=\"{{ str_replace('_', '-', app()->getLocale()) }}\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n    <!-- CSRF Token -->\n    <meta name=\"csrf-token\" content=\"{{ csrf_token() }}\">\n\n    <title>{{ config('app.name', 'Laravel') }}</title>\n\n    <!-- Scripts -->\n    <script src=\"{{ asset('js/app.js') }}\" defer></script>\n\n    <!-- Fonts -->\n    <link rel=\"dns-prefetch\" href=\"//fonts.gstatic.com\">\n    <link href=\"https://fonts.googleapis.com/css?family=Nunito\" rel=\"stylesheet\">\n\n    <!-- Styles -->\n    <link href=\"{{ asset('css/app.css') }}\" rel=\"stylesheet\">\n</head>\n<body>\n    <div class=\"flex-center position-ref full-height\">\n        @if (Route::has('login'))\n            <div class=\"top-right links\">\n                @auth\n                    <a href=\"{{ url('/home') }}\">Home</a>\n                @else\n                    <a href=\"{{ route('login') }}\">Login</a>\n\n                    @if (Route::has('register'))\n                        <a href=\"{{ route('register') }}\">Register</a>\n                    @endif\n                @endauth\n            </div>\n        @endif\n\n        <div class=\"content\" id=\"app\">\n            <div class=\"container\">\n                <data-input></data-input>\n                <brackets></brackets>\n            </div>\n        </div>\n    </div>\n</body>\n</html>\n",
+			"file": "resources/views/welcome.blade.php",
+			"file_size": 1380,
+			"file_write_time": 132299807092069905,
+			"settings":
+			{
+				"buffer_size": 1380,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "@extends('layouts.app')\n\n@section('content')\n<div class=\"container\">\n    <div class=\"row justify-content-center\">\n        <div class=\"col-md-8\">\n            <div class=\"card\">\n                <div class=\"card-header\">Dashboard</div>\n\n                <div class=\"card-body\">\n                    @if (session('status'))\n                        <div class=\"alert alert-success\" role=\"alert\">\n                            {{ session('status') }}\n                        </div>\n                    @endif\n\n                    You are logged in!\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n@endsection\n",
+			"file": "resources/views/home.blade.php",
+			"file_size": 626,
+			"file_write_time": 132299783541333377,
+			"settings":
+			{
+				"buffer_size": 626,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<template>\n    <div class=\"row justify-content-center\">\n        <div class=\"col-sm\" v-if=\"true\">\n            {{ $store.state.data }}\n        </div>\n        <div class=\"col-sm\">\n            <div class=\"form-group\">\n                <label for=\"data-box\">Data (json)</label>\n                <textarea class=\"form-control\" id=\"data-box\" rows=\"3\"></textarea>\n            </div>\n        </div>\n    </div>\n</template>\n\n<script>\n    export default {\n        mounted() {\n            \n        }\n    }\n</script>\n",
+			"file": "resources/js/components/brackets.vue",
+			"file_size": 501,
+			"file_write_time": 132299807439188111,
+			"settings":
+			{
+				"buffer_size": 501,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<template>\n    <div class=\"row justify-content-center\">\n        <div class=\"col-sm\">\n            <div class=\"form-group\">\n                <label for=\"data-box\">Data (json)</label>\n                <textarea class=\"form-control\" id=\"data-box\" rows=\"3\" v-model=\"input\" @input=\"applyData\"></textarea>\n            </div>\n        </div>\n    </div>\n</template>\n\n<script>\n    export default {\n        data: function() {\n            return {\n                input: ''\n            }\n        },\n        methods: {\n            applyData: function() {\n                this.$store.commit('apply', this.input);\n            }\n        }\n    }\n</script>\n",
+			"file": "resources/js/components/data-input.vue",
+			"file_size": 636,
+			"file_write_time": 132299805669340900,
+			"settings":
+			{
+				"buffer_size": 636,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "APP_NAME=Laravel\nAPP_ENV=local\nAPP_KEY=base64:bQIOEhh8kcu/fyJZeWUHLxLOTuLLGbVL12JjAnKJCkY=\nAPP_DEBUG=true\nAPP_URL=http://brackets.test\n\nLOG_CHANNEL=stack\n\nDB_CONNECTION=sqlite\nDB_HOST=127.0.0.1\nDB_PORT=3306\nDB_DATABASE=laravel\nDB_USERNAME=root\nDB_PASSWORD=\n\nBROADCAST_DRIVER=log\nCACHE_DRIVER=file\nQUEUE_CONNECTION=sync\nSESSION_DRIVER=file\nSESSION_LIFETIME=120\n\nREDIS_HOST=127.0.0.1\nREDIS_PASSWORD=null\nREDIS_PORT=6379\n\nMAIL_MAILER=smtp\nMAIL_HOST=smtp.mailtrap.io\nMAIL_PORT=2525\nMAIL_USERNAME=null\nMAIL_PASSWORD=null\nMAIL_ENCRYPTION=null\nMAIL_FROM_ADDRESS=null\nMAIL_FROM_NAME=\"${APP_NAME}\"\n\nAWS_ACCESS_KEY_ID=\nAWS_SECRET_ACCESS_KEY=\nAWS_DEFAULT_REGION=us-east-1\nAWS_BUCKET=\n\nPUSHER_APP_ID=\nPUSHER_APP_KEY=\nPUSHER_APP_SECRET=\nPUSHER_APP_CLUSTER=mt1\n\nMIX_PUSHER_APP_KEY=\"${PUSHER_APP_KEY}\"\nMIX_PUSHER_APP_CLUSTER=\"${PUSHER_APP_CLUSTER}\"\n",
+			"file": ".env",
+			"file_size": 834,
+			"file_write_time": 132299791803810594,
+			"settings":
+			{
+				"buffer_size": 834,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<!doctype html>\n<html lang=\"{{ str_replace('_', '-', app()->getLocale()) }}\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n    <!-- CSRF Token -->\n    <meta name=\"csrf-token\" content=\"{{ csrf_token() }}\">\n\n    <title>{{ config('app.name', 'Laravel') }}</title>\n\n    <!-- Scripts -->\n    <script src=\"{{ asset('js/app.js') }}\" defer></script>\n\n    <!-- Fonts -->\n    <link rel=\"dns-prefetch\" href=\"//fonts.gstatic.com\">\n    <link href=\"https://fonts.googleapis.com/css?family=Nunito\" rel=\"stylesheet\">\n\n    <!-- Styles -->\n    <link href=\"{{ asset('css/app.css') }}\" rel=\"stylesheet\">\n</head>\n<body>\n    <div id=\"app\">\n        <nav class=\"navbar navbar-expand-md navbar-light bg-white shadow-sm\">\n            <div class=\"container\">\n                <a class=\"navbar-brand\" href=\"{{ url('/') }}\">\n                    {{ config('app.name', 'Laravel') }}\n                </a>\n                <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"{{ __('Toggle navigation') }}\">\n                    <span class=\"navbar-toggler-icon\"></span>\n                </button>\n\n                <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n                    <!-- Left Side Of Navbar -->\n                    <ul class=\"navbar-nav mr-auto\">\n\n                    </ul>\n\n                    <!-- Right Side Of Navbar -->\n                    <ul class=\"navbar-nav ml-auto\">\n                        <!-- Authentication Links -->\n                        @guest\n                            <li class=\"nav-item\">\n                                <a class=\"nav-link\" href=\"{{ route('login') }}\">{{ __('Login') }}</a>\n                            </li>\n                            @if (Route::has('register'))\n                                <li class=\"nav-item\">\n                                    <a class=\"nav-link\" href=\"{{ route('register') }}\">{{ __('Register') }}</a>\n                                </li>\n                            @endif\n                        @else\n                            <li class=\"nav-item dropdown\">\n                                <a id=\"navbarDropdown\" class=\"nav-link dropdown-toggle\" href=\"#\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" v-pre>\n                                    {{ Auth::user()->name }} <span class=\"caret\"></span>\n                                </a>\n\n                                <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdown\">\n                                    <a class=\"dropdown-item\" href=\"{{ route('logout') }}\"\n                                       onclick=\"event.preventDefault();\n                                                     document.getElementById('logout-form').submit();\">\n                                        {{ __('Logout') }}\n                                    </a>\n\n                                    <form id=\"logout-form\" action=\"{{ route('logout') }}\" method=\"POST\" style=\"display: none;\">\n                                        @csrf\n                                    </form>\n                                </div>\n                            </li>\n                        @endguest\n                    </ul>\n                </div>\n            </div>\n        </nav>\n\n        <main class=\"py-4\">\n            @yield('content')\n        </main>\n    </div>\n</body>\n</html>\n",
+			"file": "resources/views/layouts/app.blade.php",
+			"file_size": 3522,
+			"file_write_time": 132299783541413373,
+			"settings":
+			{
+				"buffer_size": 3522,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"sublimelint",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"eslint",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"packag",
+				"Package Control: Disable Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 444.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/G/Projects/brackets",
+		"/G/Projects/brackets/resources",
+		"/G/Projects/brackets/resources/js",
+		"/G/Projects/brackets/resources/views"
+	],
+	"file_history":
+	[
+		"/G/Projects/labspend-laravel/app/OrderedItemPart.php",
+		"/G/Projects/labspend-laravel/app/OrderedItem.php",
+		"/G/Projects/labspend-laravel/app/Http/Controllers/OffersController.php",
+		"/G/Projects/labspend-laravel/config/logging.php",
+		"/G/Projects/labspend-laravel/database/migrations/2020_02_16_192816_create_ordered_item_parts_table.php",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/order-card.vue",
+		"/G/Projects/labspend-laravel/database/seeds/AddressTableSeeder.php",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/modal/order-add-custom-product.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/create-order.vue",
+		"/G/Projects/laradock/apache2/sites/brackets.conf",
+		"/G/Projects/labspend-laravel/app/Address.php",
+		"/G/Projects/labspend-laravel/.gitignore",
+		"/G/Projects/labspend-laravel/resources/js/components/common/file-upload-button.vue",
+		"/G/Projects/labspend-laravel/app/OrderInvoice.php",
+		"/G/Projects/labspend-laravel/app/Http/Controllers/AdminController.php",
+		"/G/Projects/labspend-laravel/routes/web.php",
+		"/G/Projects/labspend-laravel/routes/data.php",
+		"/G/Projects/labspend-laravel/app/Enums/UploadFileType.php",
+		"/G/Projects/labspend-laravel/app/Providers/AppServiceProvider.php",
+		"/G/Projects/labspend-laravel/database/migrations/2020_03_12_073054_change_url_limit_in_bids_table.php",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/modal/order-invoice-row.vue",
+		"/G/Projects/labspend-laravel/resources/views/admin/partials/cards/admin-order-card.blade.php",
+		"/G/Projects/labspend-laravel/resources/js/components/admin/submissions/order-card.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/admin/submissions/modals/hide-order.vue",
+		"/G/Projects/labspend-laravel/app/UploadedFile.php",
+		"/G/Projects/labspend-laravel/app/InventoryItemSds.php",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/modal/order-invoice.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/admin/submissions/orders.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/product-request.vue",
+		"/G/Projects/labspend-laravel/app/Workgroup.php",
+		"/G/Projects/labspend-laravel/resources/js/components/common/order-status.vue",
+		"/G/Projects/labspend-laravel/app/Order.php",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/order-status.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/overview-order-card.vue",
+		"/G/Projects/labspend-laravel/app/User.php",
+		"/G/Projects/labspend-laravel/resources/js/components/common/order-status-forms.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/inventory/modal/item.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/modal/tracking-received.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/modal/order-received.vue",
+		"/G/Projects/labspend-laravel/app/Enums/NotificationType.php",
+		"/G/Projects/labspend-laravel/app/Console/Commands/FixTrackingEmails.php",
+		"/G/Projects/labspend-laravel/app/Console/Commands/SendEmails.php",
+		"/G/Projects/labspend-laravel/app/TrackingEntry.php",
+		"/G/Projects/labspend-laravel/storage/logs/test.html",
+		"/G/Projects/labspend-laravel/storage/logs/laravel.log",
+		"/G/Projects/labspend-laravel/resources/views/emails/orders/tracking-added.blade.php",
+		"/G/Projects/labspend-laravel/app/Notification.php",
+		"/G/Projects/labspend-laravel/app/Traits/SendsEmails.php",
+		"/G/Projects/labspend-laravel/app/Enums/EmailTypeEnum.php",
+		"/G/Projects/labspend-laravel/app/Http/Requests/UploadFileOfferRequest.php",
+		"/G/Projects/labspend-laravel/database/migrations/2020_03_03_073624_drop_type_string_from_notifications_table.php",
+		"/G/Projects/labspend-laravel/app/Console/Commands/FixNotificationType.php",
+		"/G/Projects/labspend-laravel/database/seeds/NotificationsTableSeeder.php",
+		"/G/Projects/labspend-laravel/resources/js/components/common/attachment-button.vue",
+		"/G/Projects/labspend-laravel/database/migrations/2020_03_03_070013_drop_packing_slip_from_ordered_item_parts_table.php",
+		"/G/Projects/labspend-laravel/app/Console/Deprecated-Commands/MigrateOrderStatus.php",
+		"/G/Projects/labspend-laravel/database/seeds/enumerators/PermissionsTableEnumerator.php",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/offer-side-menu.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/settings/workgroup.vue",
+		"/G/Projects/labspend-laravel/resources/views/admin/partials/rows/permission-row.blade.php",
+		"/G/Projects/labspend-laravel/resources/views/admin/pages/dashboard.blade.php",
+		"/G/Projects/labspend-laravel/database/seeds/OrderedItemsTableSeeder.php",
+		"/G/Projects/labspend-laravel/app/Enums/TrackingStatus.php",
+		"/G/Projects/labspend-laravel/config/cache.php",
+		"/G/Projects/labspend-laravel/app/Http/Controllers/SettingsController.php",
+		"/G/Projects/labspend-laravel/app/Http/Controllers/CartController.php",
+		"/G/Projects/labspend-laravel/app/Console/Commands/MigrateOrderStatus.php",
+		"/G/Projects/labspend-laravel/database/migrations/2020_03_03_042609_add_is_admin_to_order_tracking_table.php",
+		"/G/Projects/labspend-laravel/resources/views/bids/partials/nav.blade.php",
+		"/G/Projects/labspend-laravel/resources/js/admin.js",
+		"/G/Projects/labspend-laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasRelationships.php",
+		"/G/Projects/labspend-laravel/.env",
+		"/G/Projects/labspend-laravel/database/migrations/2020_02_25_221859_drop_tracking_number_column_from_ordered_item_parts_table.php",
+		"/G/Projects/labspend-laravel/database/migrations/2020_02_24_155820_remove_foreign_key_from_order_tracking_table.php_",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/spend-codes.vue",
+		"/G/Projects/labspend-laravel/database/migrations/2020_02_18_220957_drop_foreign_key_for_order_tracking_table.php_",
+		"/G/Projects/labspend-laravel/database/migrations/2020_02_25_221717_drop_copied_columns_from_order_tracking_table.php",
+		"/G/Projects/labspend-laravel/resources/js/collections/FacilityInventoryItemCollection.js",
+		"/G/Projects/labspend-laravel/public/js/offer.js",
+		"/G/Projects/labspend-laravel/resources/js/app.js",
+		"/G/Projects/labspend-laravel/resources/js/offer.js",
+		"/G/Projects/labspend-laravel/resources/js/components/admin/submissions/modals/add-tracknumber.vue",
+		"/G/Projects/labspend-laravel/app/Http/Requests/SplitOrderedItemRequest.php",
+		"/G/Projects/labspend-laravel/resources/js/components/admin/submissions.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/analytics.vue",
+		"/G/Projects/labspend-laravel/app/Http/Requests/AddTrackingNumberAdminRequest.php",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/modal/order-status.vue",
+		"/G/Projects/labspend-laravel/app/Http/Requests/SplitOrderedItemPartRequest.php",
+		"/G/Projects/labspend-laravel/vendor/ryanrapini/laravel-addresses/src/Models/Address.php",
+		"/G/Projects/labspend-laravel/resources/views/app.blade.php",
+		"/G/Projects/labspend-laravel/resources/views/common/partials/head.blade.php",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/modal/tracking-add.vue",
+		"/G/Projects/labspend-laravel/app/Item.php",
+		"/G/Projects/labspend-data/storage/app/data/analysis/labsupplies/vwr.csv",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/overview.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/common/collection.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/facility/overview.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/inventory.vue",
+		"/G/Projects/labspend-laravel/vendor/spatie/laravel-slack-slash-command/docs/usage/making-your-response-look-good.md",
+		"/G/Projects/labspend-laravel/routes/api.php",
+		"/G/Projects/labspend-laravel/app/InvoiceItem.php",
+		"/G/Projects/labspend-laravel/app/Http/Controllers/InventoryController.php",
+		"/G/Projects/labspend-laravel/app/Http/Requests/SaveLocationInventoryRequest.php",
+		"/G/Projects/labspend-laravel/database/seeds/UsersTableSeeder.php",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/modal/order-status-forms.vue",
+		"/G/Projects/labspend-laravel/database/migrations/2020_02_24_155820_remove_foreign_key_from_order_tracking_table.php",
+		"/G/Projects/labspend-laravel/vendor/laravel/framework/src/Illuminate/Contracts/Validation/Validator.php",
+		"/G/Projects/labspend-laravel/resources/js/components/facility/facilities-sidebar.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/inventory-manage/location-settings.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/common/inventory-card-base.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/request-history.vue",
+		"/G/Projects/labspend-laravel/app/Http/Requests/AddSpendCodeInventoryRequest.php",
+		"/G/Projects/labspend-laravel/resources/js/components/common/confirmation-modal.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/inventory-manage/tag-settings.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/facility/manage-labs.vue",
+		"/G/Projects/labspend-laravel/resources/js/models/SpendCode.js",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/modal/order-add-request-product.vue",
+		"/G/Projects/labspend-laravel/resources/views/common/partials/javascript.blade.php",
+		"/G/Projects/labspend-laravel/resources/less/app.less",
+		"/G/Projects/labspend-laravel/database/migrations/2020_02_13_202655_add_notes_to_quote_requests_table.php",
+		"/G/Projects/labspend-laravel/app/Services/SpendCodeService.php",
+		"/G/Projects/labspend-laravel/package.json",
+		"/G/Projects/labspend-laravel/npm-shrinkwrap.json",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/overview-request-card.vue",
+		"/G/Projects/labspend-laravel/app/Http/Controllers/SpendCodeController.php",
+		"/G/Projects/laradock/apache2/sites/rtfm.conf",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/shop-cart.vue",
+		"/G/Projects/labspend-laravel/resources/js/components/offer/offer-cart-row.vue"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 104.0,
+		"where_history":
+		[
+			"G:\\Projects\\labspend-laravel\\resources",
+			"G:\\Projects\\labspend-laravel",
+			"G:\\Projects\\labspend-laravel\\app,G:\\Projects\\labspend-laravel\\resources,G:\\Projects\\labspend-laravel\\database",
+			"G:\\Projects\\labspend-laravel\\database\\migrations",
+			"G:\\Projects\\labspend-laravel\\app,G:\\Projects\\labspend-laravel\\resources,G:\\Projects\\labspend-laravel\\database",
+			"G:\\Projects\\labspend-laravel\\app,G:\\Projects\\labspend-laravel\\resources",
+			"G:\\Projects\\labspend-laravel\\app",
+			"G:\\Projects\\labspend-laravel\\database\\app",
+			"G:\\Projects\\labspend-laravel\\database\\migrations",
+			"G:\\Projects\\labspend-laravel\\app",
+			"G:\\Projects\\labspend-laravel\\resources",
+			"G:\\Projects\\labspend-laravel\\resources,G:\\Projects\\labspend-laravel\\app,G:\\Projects\\labspend-laravel\\routes",
+			"G:\\Projects\\labspend-laravel\\resources,G:\\Projects\\labspend-laravel\\app",
+			"G:\\Projects\\labspend-laravel\\resources",
+			"G:\\Projects\\labspend-laravel\\database\\migrations",
+			"G:\\Projects\\labspend-laravel\\resources,G:\\Projects\\labspend-laravel\\app",
+			"G:\\Projects\\labspend-laravel\\app",
+			"G:\\Projects\\labspend-laravel\\resources",
+			"G:\\Projects\\labspend-laravel\\app",
+			"G:\\Projects\\labspend-laravel\\resources",
+			"G:\\Projects\\labspend-laravel\\",
+			"G:\\Projects\\labspend-laravel\\resources\\views\\offers",
+			"G:\\Projects\\labspend-laravel,-*/node_modules/*",
+			"G:\\Projects\\labspend-laravel",
+			"G:\\Projects\\labspend-laravel\\resources",
+			"G:\\Projects\\labspend-laravel\\node_modules",
+			"G:\\Projects\\labspend-laravel\\resources,G:\\Projects\\labspend-laravel\\app,G:\\Projects\\labspend-laravel\\config,G:\\Projects\\labspend-laravel\\bootstrap,G:\\Projects\\labspend-laravel\\routes,G:\\Projects\\labspend-laravel\\tests,",
+			"G:\\Projects\\labspend-laravel\\resources,G:\\Projects\\labspend-laravel\\app,G:\\Projects\\labspend-laravel\\config,G:\\Projects\\labspend-laravel\\bootstrap,G:\\Projects\\labspend-laravel\\tests",
+			"G:\\Projects\\labspend-laravel\\resources",
+			"G:\\Projects\\labspend-laravel\\app",
+			"G:\\Projects\\labspend-laravel\\resources,G:\\Projects\\labspend-laravel\\app,G:\\Projects\\labspend-laravel\\config,G:\\Projects\\labspend-laravel\\bootstrap,G:\\Projects\\labspend-laravel\\tests",
+			"G:\\Projects\\labspend-laravel\\resources\\js\\components\\inventory",
+			"G:\\Projects\\labspend-laravel\\resources,G:\\Projects\\labspend-laravel\\app,G:\\Projects\\labspend-laravel\\config,G:\\Projects\\labspend-laravel\\bootstrap,G:\\Projects\\labspend-laravel\\tests",
+			"G:\\Projects\\labspend-laravel\\app",
+			"G:\\Projects\\labspend-laravel\\resources",
+			"G:\\Projects\\labspend-laravel\\resources,G:\\Projects\\labspend-laravel\\app,G:\\Projects\\labspend-laravel\\config,G:\\Projects\\labspend-laravel\\bootstrap,G:\\Projects\\labspend-laravel\\tests",
+			"G:\\Projects\\labspend-laravel\\tests",
+			"G:\\Projects\\labspend-laravel\\resources,G:\\Projects\\labspend-laravel\\app,G:\\Projects\\labspend-laravel\\config,G:\\Projects\\labspend-laravel\\bootstrap,G:\\Projects\\labspend-laravel\\tests",
+			"D:\\Projects\\LabSpend-Laravel\\",
+			"D:\\Projects\\LabSpend-Laravel\\config",
+			"D:\\Projects\\LabSpend-Laravel\\app\\Http\\Controllers",
+			"D:\\Projects\\LabSpend-Laravel\\app",
+			"D:\\Projects\\LabSpend-Laravel\\resources\\views\\partials\\instance\\rows",
+			"D:\\Projects\\LabSpend-Laravel",
+			"D:\\Projects\\LabSpend-Laravel\\app",
+			"D:\\Projects\\LabSpend-Laravel\\resources",
+			"D:\\Projects\\LabSpend-Laravel\\app",
+			"D:\\Projects\\LabSpend-Laravel\\resources",
+			"D:\\Projects\\LabSpend-Laravel\\app\\Http",
+			"D:\\Projects\\LabSpend-Laravel\\resources",
+			"D:\\Projects\\LabSpend-Laravel",
+			"D:\\Projects\\LabSpend-Laravel\\resources",
+			"D:\\Projects\\LabSpend-Laravel\\vendor\\lecturize\\laravel-addresses",
+			"D:\\Projects\\LabSpend-Laravel\\app",
+			"D:\\Projects\\LabSpend-Laravel\\database",
+			"D:\\Projects\\LabSpend-Laravel\\app",
+			"D:\\Projects\\LabSpend-Laravel\\resources",
+			"D:\\Projects\\LabSpend-Laravel,-*min.js",
+			"D:\\Projects\\LabSpend-Laravel,-*-min.js",
+			"D:\\Projects\\LabSpend-Laravel",
+			"D:\\Projects\\rtfm\\node_modules\\vue-material\\src\\",
+			"D:\\Projects\\rtfm\\node_modules\\vue-material\\src\\core",
+			"D:\\Projects\\rtfm\\node_modules\\vue-material\\src\\components\\mdTabs",
+			"D:\\Projects\\rtfm\\node_modules\\vue-material\\src\\components\\",
+			"D:\\Projects\\rtfm\\node_modules\\vue-material\\src\\components\\mdSubheader",
+			"D:\\Projects\\rtfm",
+			"D:\\Projects\\rtfm\\src",
+			"D:\\Projects\\rtfm",
+			"D:\\Projects\\rtfm\\src",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"exampleFormControlTextarea1",
+			"vuetable",
+			"\n            'is_public' => true,",
+			"\n            'note' => null,\n            'lat' => null,\n            'lng' => null,",
+			"'country_id' => 1,",
+			"new product",
+			"n",
+			"new product",
+			"invoice not available",
+			"in",
+			"ordered_item_parts",
+			"packing_slip",
+			"packing",
+			"bodyparser",
+			"access ",
+			"has",
+			"uploadfile",
+			"uploadinvoice",
+			"up",
+			"upload",
+			"orderinvoice",
+			"uploadInvoice",
+			"uploadinvoice",
+			"uploadInvoice",
+			"uploadinv",
+			"invoice-remove",
+			"invoice-upload",
+			"order-invoice",
+			"invoice modal",
+			"invoice",
+			"upload invoice",
+			"uploadinvoice",
+			"invoice",
+			"view",
+			"download",
+			"return \\Storage::disk('public')->download($uploaded_file->filepath, $uploaded_file->original_filename);",
+			"download",
+			"downloadFile",
+			"FileUploadButton",
+			"file",
+			"attach",
+			"Offers",
+			"invoice",
+			"uploadfile",
+			"uploaded_file",
+			"UploadedFile",
+			"invoice",
+			"showinvoice",
+			"hide",
+			"backorder",
+			"backorder dates",
+			".length",
+			"orders",
+			"/orders",
+			"orders",
+			"length",
+			"spend_codes.length",
+			"mixture_modal_id",
+			"onOpen",
+			"add mixture components",
+			"toInventory",
+			"you are changing the order",
+			"add item to inventory",
+			"add to inventory",
+			"is-emailed",
+			"Cache::tags('order')",
+			"Cache::tags(",
+			"orders",
+			"loading_orders",
+			"getCachedOrder",
+			"getorders",
+			"getCachedOrder",
+			"getorders",
+			"data",
+			"tracking",
+			"packing_slip",
+			"'type_string' =>",
+			"type_string",
+			"createTracking",
+			"uploadedfile",
+			"packing_slip",
+			"FileUploadButton",
+			"auxData",
+			".optio",
+			".optioons",
+			"options",
+			"auxData",
+			"itemsToInventory",
+			"trackingEntries",
+			"tracking",
+			"trackingEntries",
+			"tracking",
+			"trackingent",
+			"status",
+			"trackingEntry",
+			"edit-backorder",
+			"backorder dates",
+			"TrackingEntry",
+			"entry",
+			"trackingEntries",
+			"trackingent",
+			"tracking",
+			"trackingEntry",
+			"->trackingEntry",
+			"trackingEntry",
+			"trackingEntries",
+			"moneySaved",
+			"saved",
+			"money",
+			"loadstate",
+			"moneysaved",
+			"trackingEntries",
+			"addTrackingNumber",
+			"trackingEntries",
+			"NotificationType::TrackingAdded",
+			"notifications",
+			"tracking-added",
+			"OrderTrackingAddedMail",
+			"tracking email",
+			"toInventory",
+			"status",
+			"toInventory",
+			"is_admin",
+			"add packing",
+			"add item to inventory",
+			"started",
+			"status",
+			"trackabpe_type"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Cache::tags('orders')",
+			"spend-code",
+			"'",
+			"SettingType",
+			"FacilityController",
+			"info",
+			"response()->jsonFailure",
+			"'quote_request'",
+			"$this->",
+			"$this->assertNull",
+			"$this->assertTrue",
+			"TriStateToggle",
+			"street",
+			"street_extra",
+			"street"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "resources/js/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1218,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1213,
+								1213
+							]
+						],
+						"settings":
+						{
+							"SL.34.region_keys":
+							[
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 108.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "resources/views/welcome.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1380,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1318,
+								1318
+							]
+						],
+						"settings":
+						{
+							"SL.36.region_keys":
+							[
+							],
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 108.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resources/views/home.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 626,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"SL.57.region_keys":
+							[
+							],
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "resources/js/components/brackets.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 501,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								105,
+								105
+							]
+						],
+						"settings":
+						{
+							"SL.35.region_keys":
+							[
+							],
+							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "resources/js/components/data-input.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 636,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								571,
+								571
+							]
+						],
+						"settings":
+						{
+							"SL.58.region_keys":
+							[
+							],
+							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": ".env",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 834,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								175,
+								175
+							]
+						],
+						"settings":
+						{
+							"SL.38.region_keys":
+							[
+							],
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 6,
+					"file": "resources/views/layouts/app.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3522,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								329,
+								646
+							]
+						],
+						"settings":
+						{
+							"SL.54.region_keys":
+							[
+							],
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 266.0
+	},
+	"output.exec":
+	{
+		"height": 120.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "brackets.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"addressta",
+				"database\\seeds\\AddressTableSeeder.php"
+			],
+			[
+				"addressse",
+				"database\\seeds\\AddressTableSeeder.php"
+			],
+			[
+				"order-add",
+				"resources\\js\\components\\offer\\modal\\order-add-request-product.vue"
+			],
+			[
+				"add-custo",
+				"resources\\js\\components\\offer\\modal\\order-add-custom-product.vue"
+			],
+			[
+				"ordereditempar",
+				"app\\OrderedItemPart.php"
+			],
+			[
+				"ordereditem",
+				"app\\OrderedItem.php"
+			],
+			[
+				"offerscon",
+				"app\\Http\\Controllers\\OffersController.php"
+			],
+			[
+				"logging",
+				"config\\logging.php"
+			],
+			[
+				"offersco",
+				"app\\Http\\Controllers\\OffersController.php"
+			],
+			[
+				"address.ph",
+				"app\\Address.php"
+			],
+			[
+				"upload-b",
+				"resources\\js\\components\\common\\file-upload-button.vue"
+			],
+			[
+				"orderinv",
+				"app\\OrderInvoice.php"
+			],
+			[
+				"offercon",
+				"app\\Http\\Controllers\\OffersController.php"
+			],
+			[
+				"data",
+				"routes\\data.php"
+			],
+			[
+				"appserv",
+				"app\\Providers\\AppServiceProvider.php"
+			],
+			[
+				"web",
+				"routes\\web.php"
+			],
+			[
+				"fileupload",
+				"resources\\js\\components\\common\\file-upload-button.vue"
+			],
+			[
+				"upload",
+				"app\\Enums\\UploadFileType.php"
+			],
+			[
+				"invoice.vue",
+				"resources\\js\\components\\offer\\modal\\order-invoice-row.vue"
+			],
+			[
+				"adminco",
+				"app\\Http\\Controllers\\AdminController.php"
+			],
+			[
+				"offers",
+				"app\\Http\\Controllers\\OffersController.php"
+			],
+			[
+				"order-invo",
+				"resources\\js\\components\\offer\\modal\\order-invoice-row.vue"
+			],
+			[
+				"modal invoice",
+				"resources\\js\\components\\offer\\modal\\order-invoice.vue"
+			],
+			[
+				"inventoryitemsd",
+				"app\\InventoryItemSds.php"
+			],
+			[
+				"uplo",
+				"app\\UploadedFile.php"
+			],
+			[
+				"dat",
+				"routes\\data.php"
+			],
+			[
+				"admincon",
+				"app\\Http\\Controllers\\AdminController.php"
+			],
+			[
+				"hide-order",
+				"resources\\js\\components\\admin\\submissions\\modals\\hide-order.vue"
+			],
+			[
+				"orders.",
+				"resources\\js\\components\\admin\\submissions\\orders.vue"
+			],
+			[
+				"overview-or",
+				"resources\\js\\components\\offer\\overview-order-card.vue"
+			],
+			[
+				"orderedite",
+				"app\\OrderedItem.php"
+			],
+			[
+				"order",
+				"app\\Order.php"
+			],
+			[
+				"user",
+				"app\\User.php"
+			],
+			[
+				"offercont",
+				"app\\Http\\Controllers\\OffersController.php"
+			],
+			[
+				"order-status",
+				"resources\\js\\components\\offer\\order-status.vue"
+			],
+			[
+				"product",
+				"resources\\js\\components\\offer\\product-request.vue"
+			],
+			[
+				"order-status.vue",
+				"resources\\js\\components\\offer\\order-status.vue"
+			],
+			[
+				"order-card",
+				"resources\\js\\components\\admin\\submissions\\order-card.vue"
+			],
+			[
+				"appservice",
+				"app\\Providers\\AppServiceProvider.php"
+			],
+			[
+				"sende",
+				"app\\Console\\Commands\\SendEmails.php"
+			],
+			[
+				"submissions\\orde",
+				"resources\\js\\components\\admin\\submissions\\orders.vue"
+			],
+			[
+				"appser",
+				"app\\Providers\\AppServiceProvider.php"
+			],
+			[
+				"laravel",
+				"storage\\logs\\laravel.log"
+			],
+			[
+				"tracking",
+				"app\\TrackingEntry.php"
+			],
+			[
+				"trait send",
+				"app\\Traits\\SendsEmails.php"
+			],
+			[
+				"notificat",
+				"app\\Enums\\NotificationType.php"
+			],
+			[
+				"tracking-adde",
+				"resources\\views\\emails\\orders\\tracking-added.blade.php"
+			],
+			[
+				"laravel.lo",
+				"storage\\logs\\laravel.log"
+			],
+			[
+				"sendemails",
+				"app\\Console\\Commands\\SendEmails.php"
+			],
+			[
+				"send",
+				"app\\Traits\\SendsEmails.php"
+			],
+			[
+				"uploadfile",
+				"app\\Enums\\UploadFileType.php"
+			],
+			[
+				"user.php",
+				"app\\User.php"
+			],
+			[
+				"",
+				"app\\OrderedItemPart.php"
+			],
+			[
+				"uploaded",
+				"app\\UploadedFile.php"
+			],
+			[
+				"order-status-for",
+				"resources\\js\\components\\common\\order-status-forms.vue"
+			],
+			[
+				"common\\",
+				"resources\\js\\components\\common\\file-upload-button.vue"
+			],
+			[
+				"order-status.",
+				"resources\\js\\components\\offer\\order-status.vue"
+			],
+			[
+				"odereditempar",
+				"app\\OrderedItemPart.php"
+			],
+			[
+				"ordereditempa",
+				"app\\OrderedItemPart.php"
+			],
+			[
+				"order-status-form",
+				"resources\\js\\components\\common\\order-status-forms.vue"
+			],
+			[
+				"order-status.v",
+				"resources\\js\\components\\offer\\order-status.vue"
+			],
+			[
+				"data.php",
+				"routes\\data.php"
+			],
+			[
+				"workgr",
+				"app\\Workgroup.php"
+			],
+			[
+				"order.",
+				"app\\Order.php"
+			],
+			[
+				"user.p",
+				"app\\User.php"
+			],
+			[
+				"offerscont",
+				"app\\Http\\Controllers\\OffersController.php"
+			],
+			[
+				"sendem",
+				"app\\Console\\Commands\\SendEmails.php"
+			],
+			[
+				"trackinge",
+				"app\\TrackingEntry.php"
+			],
+			[
+				"enums\\notif",
+				"app\\Enums\\NotificationType.php"
+			],
+			[
+				"notifica",
+				"app\\Notification.php"
+			],
+			[
+				"cache.",
+				"config\\cache.php"
+			],
+			[
+				"workgroup.vu",
+				"resources\\js\\components\\offer\\settings\\workgroup.vue"
+			],
+			[
+				"enum\\permis",
+				"database\\seeds\\enumerators\\PermissionsTableEnumerator.php"
+			],
+			[
+				"enums\\track",
+				"app\\Enums\\TrackingStatus.php"
+			],
+			[
+				"admin.js",
+				"resources\\js\\admin.js"
+			],
+			[
+				"admin/order",
+				"resources\\js\\components\\admin\\submissions\\order-card.vue"
+			],
+			[
+				".env",
+				".env"
+			],
+			[
+				"ordered",
+				"app\\OrderedItemPart.php"
+			],
+			[
+				"admincto",
+				"app\\Http\\Controllers\\AdminController.php"
+			],
+			[
+				"offer",
+				"app\\Http\\Controllers\\OffersController.php"
+			],
+			[
+				"offers-vue",
+				"resources\\js\\components\\offer\\spend-codes.vue"
+			],
+			[
+				"offer.js",
+				"resources\\js\\offer.js"
+			],
+			[
+				"offer.j",
+				"public\\js\\offer.js"
+			],
+			[
+				"order-car",
+				"resources\\js\\components\\offer\\order-card.vue"
+			],
+			[
+				"ordereditepart",
+				"app\\OrderedItemPart.php"
+			],
+			[
+				"ordereditem.ph",
+				"app\\OrderedItem.php"
+			],
+			[
+				"cartcont",
+				"app\\Http\\Controllers\\CartController.php"
+			],
+			[
+				"ordereditempart",
+				"app\\OrderedItemPart.php"
+			],
+			[
+				"enums/status",
+				"app\\Enums\\TrackingStatus.php"
+			],
+			[
+				"admin/ord",
+				"resources\\js\\components\\admin\\submissions\\order-card.vue"
+			],
+			[
+				"submission order",
+				"resources\\js\\components\\admin\\submissions\\orders.vue"
+			],
+			[
+				"admin/sub",
+				"resources\\js\\components\\admin\\submissions.vue"
+			],
+			[
+				"admin/order-car",
+				"resources\\js\\components\\admin\\submissions\\order-card.vue"
+			],
+			[
+				"ordereditemp",
+				"app\\OrderedItemPart.php"
+			],
+			[
+				"address",
+				"app\\Address.php"
+			],
+			[
+				"cartcon",
+				"app\\Http\\Controllers\\CartController.php"
+			],
+			[
+				"adminc",
+				"app\\Http\\Controllers\\AdminController.php"
+			],
+			[
+				"add-track",
+				"resources\\js\\components\\admin\\submissions\\modals\\add-tracknumber.vue"
+			],
+			[
+				"tracking-",
+				"resources\\js\\components\\offer\\modal\\tracking-add.vue"
+			],
+			[
+				"orders.vue",
+				"resources\\js\\components\\admin\\submissions\\orders.vue"
+			],
+			[
+				"submiss",
+				"resources\\js\\components\\admin\\submissions.vue"
+			],
+			[
+				"item",
+				"app\\Item.php"
+			],
+			[
+				"admincont",
+				"app\\Http\\Controllers\\AdminController.php"
+			],
+			[
+				"user.",
+				"app\\User.php"
+			],
+			[
+				"collecti",
+				"resources\\js\\components\\common\\collection.vue"
+			],
+			[
+				"overview",
+				"resources\\js\\components\\offer\\overview.vue"
+			],
+			[
+				"overview.",
+				"resources\\js\\components\\facility\\overview.vue"
+			],
+			[
+				"order-stat",
+				"resources\\js\\components\\offer\\order-status.vue"
+			],
+			[
+				"item.vue",
+				"resources\\js\\components\\inventory\\modal\\item.vue"
+			],
+			[
+				"making ",
+				"vendor\\spatie\\laravel-slack-slash-command\\docs\\usage\\making-your-response-look-good.md"
+			],
+			[
+				"overvi",
+				"resources\\js\\components\\facility\\overview.vue"
+			],
+			[
+				"api",
+				"routes\\api.php"
+			],
+			[
+				"invoice",
+				"app\\InvoiceItem.php"
+			],
+			[
+				"inventorycont",
+				"app\\Http\\Controllers\\InventoryController.php"
+			],
+			[
+				"order-status.vu",
+				"resources\\js\\components\\offer\\order-status.vue"
+			],
+			[
+				"order.php",
+				"app\\Order.php"
+			],
+			[
+				"saveloc",
+				"app\\Http\\Requests\\SaveLocationInventoryRequest.php"
+			],
+			[
+				"usertab",
+				"database\\seeds\\UsersTableSeeder.php"
+			],
+			[
+				"orderstatus",
+				"app\\Console\\Commands\\MigrateOrderStatus.php"
+			],
+			[
+				"facilityside",
+				"resources\\js\\components\\facility\\facilities-sidebar.vue"
+			],
+			[
+				"inventorycon",
+				"app\\Http\\Controllers\\InventoryController.php"
+			],
+			[
+				"workg",
+				"app\\Workgroup.php"
+			],
+			[
+				"savelo",
+				"app\\Http\\Requests\\SaveLocationInventoryRequest.php"
+			],
+			[
+				"location-",
+				"resources\\js\\components\\inventory-manage\\location-settings.vue"
+			],
+			[
+				"collect",
+				"resources\\js\\components\\common\\collection.vue"
+			],
+			[
+				"spend-c",
+				"resources\\js\\components\\offer\\spend-codes.vue"
+			],
+			[
+				"request-h",
+				"resources\\js\\components\\offer\\request-history.vue"
+			],
+			[
+				"tags",
+				"resources\\js\\components\\inventory-manage\\tag-settings.vue"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"G:\\Projects\\labspend-data\\labspend-data.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 214.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
